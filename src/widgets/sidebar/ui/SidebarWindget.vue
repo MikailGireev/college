@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useSidebarStore } from '../model/sidebarStore';
 
-const data = ref<Date | null>(null);
+const storeSidebar = useSidebarStore();
+const { data } = storeToRefs(storeSidebar);
 </script>
 
 <template>
   <div class="sidebar">
-    <h2>Sidebar</h2>
-    <UiCalendar v-model="data" date-format="dd.mm.y" showIcon />
+    <UiCalendar inline v-model="data" date-format="dd.mm.y" showIcon />
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.sidebar {
+  border: 1px solid #dadce0;
+}
+</style>

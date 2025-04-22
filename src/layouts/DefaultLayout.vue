@@ -5,11 +5,9 @@ import { Topbar } from '@/widgets/topbar';
 
 <template>
   <div class="layout">
-    <div class="layout__sidebar">
-      <aside class="layout__sidebar">
-        <Sidebar />
-      </aside>
-    </div>
+    <aside class="layout__sidebar">
+      <Sidebar />
+    </aside>
     <div class="layout__main">
       <Topbar />
       <main class="layout__content">
@@ -25,9 +23,15 @@ import { Topbar } from '@/widgets/topbar';
   height: 100vh;
 
   &__sidebar {
+    border: 1px solid #dadce0;
     padding: 10px 16px;
     flex: 0 0 250px;
     height: 100vh;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    height: 100%;
   }
 }
 </style>
