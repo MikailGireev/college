@@ -1,0 +1,7 @@
+<script setup lang="ts"></script>
+
+<template>
+  <header class="header"><h1>Header</h1></header>
+</template>
+
+<style scoped lang="scss"></style>
