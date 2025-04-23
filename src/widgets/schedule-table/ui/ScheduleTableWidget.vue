@@ -10,7 +10,6 @@ const { loadExcel } = storeSchedule;
 const { filteredLessons } = storeToRefs(storeSchedule);
 
 onMounted(loadExcel);
-
 watch(filteredLessons, () => {
   loadExcel();
 });

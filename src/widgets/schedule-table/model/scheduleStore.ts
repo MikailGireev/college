@@ -19,7 +19,7 @@ export const useScheduleStore = defineStore('schedule', () => {
   const selectGroup = ref('');
 
   const loadExcel = async () => {
-    const res = await fetch('/schedule/schedule.xlsx');
+    const res = await fetch(`${import.meta.env.BASE_URL}schedule/schedule.xlsx`);
     const buf = await res.arrayBuffer();
     const wb = XLSX.read(buf, { type: 'array' });
 
