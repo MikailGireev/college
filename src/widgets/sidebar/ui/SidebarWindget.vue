@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { useScheduleStore } from '@/widgets/schedule-table/model/scheduleStore';
 import { storeToRefs } from 'pinia';
-import { useSidebarStore } from '../model/sidebarStore';
 
-const storeSidebar = useSidebarStore();
-const { data } = storeToRefs(storeSidebar);
+const storeSchedule = useScheduleStore();
+const { selectDate } = storeToRefs(storeSchedule);
 </script>
 
 <template>
   <div class="sidebar">
-    <UiCalendar inline v-model="data" date-format="dd.mm.y" showIcon />
+    <UiCalendar inline v-model="selectDate" date-format="dd.mm.y" showIcon />
   </div>
 </template>
 

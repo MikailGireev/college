@@ -5,6 +5,7 @@ import { createPinia } from 'pinia';
 
 import PrimeVue from 'primevue/config';
 import { DatePicker } from 'primevue';
+import { InputText } from 'primevue';
 import Aura from '@primevue/themes/aura';
 
 import App from './app/App.vue';
@@ -27,3 +28,4 @@ app.use(PrimeVue, {
 app.mount('#app');
 
 app.component('UiCalendar', DatePicker);
+app.component('InputText', InputText);

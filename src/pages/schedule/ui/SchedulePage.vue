@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ScheduleTable } from '@/widgets/schedule-table';
+</script>
 
 <template>
-  <h1>Hello</h1>
+  <ScheduleTable />
 </template>
