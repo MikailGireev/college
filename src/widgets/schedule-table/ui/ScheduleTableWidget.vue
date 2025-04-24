@@ -4,6 +4,7 @@ import { useScheduleStore } from '../model/scheduleStore';
 import { storeToRefs } from 'pinia';
 import { Typography } from '@/shared/typography';
 import { Tags } from '@/utils/tags';
+import { ScheduleContainer } from '@/widgets/schedule-container';
 
 const storeSchedule = useScheduleStore();
 const { loadExcel } = storeSchedule;
@@ -17,27 +18,8 @@ watch(filteredLessons, () => {
 
 <template>
   <div v-if="filteredLessons.length" class="schedule-view">
-    <h2>Parsed Lessons</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>День</th>
-          <th>№ пары</th>
-          <th>Группа</th>
-          <th>Предмет</th>
-          <th>Аудитория</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(l, i) in filteredLessons" :key="i">
-          <td>{{ l.day }}</td>
-          <td>{{ l.order }}</td>
-          <td>{{ l.group }}</td>
-          <td>{{ l.subject }}</td>
-          <td>{{ l.room }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <h2>{{ filteredLessons[0].day }}</h2>
+    <ScheduleContainer :order="4" :lessons="filteredLessons" />
   </div>
   <div v-else class="schedule-view">
     <Typography :tag="Tags.H2">Нет занятий</Typography>

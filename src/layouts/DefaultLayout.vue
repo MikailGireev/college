@@ -20,13 +20,11 @@ import { Topbar } from '@/widgets/topbar';
 <style scoped lang="scss">
 .layout {
   display: flex;
-  height: 100vh;
 
   &__sidebar {
     border: 1px solid #dadce0;
     padding: 10px 16px;
     flex: 0 0 250px;
-    height: 100vh;
   }
 
   &__main {

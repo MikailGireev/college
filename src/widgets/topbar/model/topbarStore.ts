@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
 export const useTopbarStore = defineStore('topbar', () => {
-  const weekStart = ref(new Date(2022, 0, 1));
+  const weekStart = ref(new Date(2025, 3, 24));
 
   const weekLabel = computed(() => {
     const end = addDays(weekStart.value, 6);
