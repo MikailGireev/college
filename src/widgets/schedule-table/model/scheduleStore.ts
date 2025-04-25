@@ -32,6 +32,10 @@ export const useScheduleStore = defineStore('schedule', () => {
     parseLessons();
   };
 
+  const setSelectGroup = (group: string) => {
+    selectGroup.value = group;
+  };
+
   const parseLessons = () => {
     const data = rawData.value;
     if (data.length < 5) return;
@@ -82,5 +86,5 @@ export const useScheduleStore = defineStore('schedule', () => {
     );
   });
 
-  return { rawData, lessons, loadExcel, selectDate, selectGroup, filteredLessons };
+  return { rawData, lessons, loadExcel, selectDate, selectGroup, filteredLessons, setSelectGroup };
 });

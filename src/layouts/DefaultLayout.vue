@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { Sidebar } from '@/widgets/sidebar';
+import { useSidebarStore } from '@/widgets/sidebar/model/sidebarStore';
 import { Topbar } from '@/widgets/topbar';
+import { storeToRefs } from 'pinia';
+
+const storeSidebar = useSidebarStore();
+const { isShow } = storeToRefs(storeSidebar);
 </script>
 
 <template>
   <div class="layout">
-    <aside class="layout__sidebar">
+    <aside :class="`layout__sidebar ${isShow ? 'show' : ''}`">
       <Sidebar />
     </aside>
-    <div class="layout__main">
+    <div :class="`layout__main ${isShow ? 'show-sidebar' : ''}`">
       <Topbar />
       <main class="layout__content">
         <RouterView />
@@ -22,14 +27,33 @@ import { Topbar } from '@/widgets/topbar';
   display: flex;
 
   &__sidebar {
-    border: 1px solid #dadce0;
-    padding: 10px 16px;
-    flex: 0 0 250px;
+    width: 0;
+    max-width: 350px;
+    height: 100vh;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 100;
+
+    &.show {
+      display: flex;
+      justify-content: center;
+      width: 350px;
+    }
   }
 
   &__main {
-    flex: 1 1 auto;
+    margin-left: 0;
+    flex-grow: 1;
     height: 100%;
+    transition: margin-left 0.3s ease;
+  }
+
+  &__main.show-sidebar {
+    margin-left: 350px;
   }
 }
 </style>

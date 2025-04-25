@@ -7,9 +7,13 @@ import { Icon } from '@/shared/icon';
 
 import { Tags } from '@/utils/tags';
 import { useScheduleStore } from '@/widgets/schedule-table/model/scheduleStore';
+import { useSidebarStore } from '@/widgets/sidebar/model/sidebarStore';
 
 const storeTopbar = useTopbarStore();
 const { weekLabel } = storeToRefs(storeTopbar);
+
+const storeSidebar = useSidebarStore();
+const { setShow } = storeSidebar;
 
 const storeShedule = useScheduleStore();
 const { selectGroup } = storeToRefs(storeShedule);
@@ -19,7 +23,7 @@ const { selectGroup } = storeToRefs(storeShedule);
   <header class="header">
     <div class="header__container">
       <div class="header__menu">
-        <Icon name="bars" />
+        <Icon @click="setShow" name="bars" />
         <Typography :bold="true" :tag="Tags.H1">{{ weekLabel }}</Typography>
       </div>
       <div class="header__search">

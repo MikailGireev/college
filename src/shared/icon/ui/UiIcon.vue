@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, useAttrs } from 'vue';
 import type { Component } from 'vue';
 
 const props = defineProps<{ name: string }>();
@@ -11,10 +11,17 @@ function resolveIcon(name: string): Component | null {
   const file = icons[key];
   return file?.default ?? null;
 }
+
+const attrs = useAttrs();
 </script>
 
 <template>
-  <component v-if="resolveIcon(props.name)" :is="resolveIcon(props.name)" class="icon" />
+  <component
+    v-bind="attrs"
+    v-if="resolveIcon(props.name)"
+    :is="resolveIcon(props.name)"
+    class="icon"
+  />
 </template>
 
 <style scoped lang="scss">

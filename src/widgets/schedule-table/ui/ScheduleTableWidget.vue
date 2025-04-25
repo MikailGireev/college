@@ -19,7 +19,7 @@ watch(filteredLessons, () => {
 <template>
   <div v-if="filteredLessons.length" class="schedule-view">
     <h2>{{ filteredLessons[0].day }}</h2>
-    <ScheduleContainer :order="4" :lessons="filteredLessons" />
+    <ScheduleContainer />
   </div>
   <div v-else class="schedule-view">
     <Typography :tag="Tags.H2">Нет занятий</Typography>

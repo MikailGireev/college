@@ -12,8 +12,4 @@ const { selectDate } = storeToRefs(storeSchedule);
   </div>
 </template>
 
-<style scoped lang="scss">
-.sidebar {
-  border: 1px solid #dadce0;
-}
-</style>
+<style scoped lang="scss"></style>
